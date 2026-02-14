@@ -1,0 +1,28 @@
+{
+  "listen_host": "127.0.0.1",
+  "listen_port": 25565,
+  "auto_detect_enabled": false,
+  "detect_interval_seconds": 60,
+  "remote_nodes_api": "https://apimc.lnlfly.com/api/nodes",
+  "announcement_api": "https://apimc.lnlfly.com/api/announcement",
+  "heartbeat_api": "https://apimc.lnlfly.com/api/heartbeat",
+  "update_api": "https://apimc.lnlfly.com/api/update",
+  "ad_api": "https://apimc.lnlfly.com/api/ad",
+  "ignored_announcement_ids": [],
+  "ad": {
+    "type": "text",
+    "text": "power of MZDYHR",
+    "image_path": "",
+    "url": "https://your-sponsor-page.example"
+  },
+  "sponsor_links": [
+    {
+      "name": "lpsguide赞助",
+      "url": "https://www.lpsguide.cn/about/sponsorship/",
+      "image": ""
+    }
+  ],
+  "windows_autostart": false,
+  "client_id": "dea91ae2-1336-4a4d-8b57-f90fcec636b5",
+  "version": "1.0.0"
+}

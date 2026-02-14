@@ -1,0 +1,33 @@
+{
+    "listen_port": 18800,
+    "check_interval": 30,
+    "endpoints": [
+        {
+            "hostname": "Darkli",
+            "ip": "154.44.26.51",
+            "port": 25565
+        },
+        {
+            "hostname": "lnlfly-de-2",
+            "ip": "31.25.89.10",
+            "port": 41598
+        },
+        {
+            "hostname": "lnlfly-cn",
+            "ip": "8.148.210.168",
+            "port": 25565
+        },
+        {
+            "hostname": "lnlfly-hk",
+            "ip": "143.14.189.167",
+            "port": 25565
+        }
+    ],
+    "dns_endpoints": [
+        {
+            "hostname": "offical",
+            "domain": "letsplay.minecrafttransitrailway.com",
+            "ports": [25565]
+        }
+    ]
+}
