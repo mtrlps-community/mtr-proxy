@@ -18,5 +18,5 @@ jobs:
         with:
           python_ver: '3.12'
           spec: 'main.py'
-          upload_exe_with_name: 'MTR加速器'
-          options: --noconfirm, --onefile, --windowed, --name "MTR加速器", --hidden-import, PySide6, --hidden-import, requests,
+          upload_exe_with_name: 'MTR-accelerator'
+          options: --noconfirm, --onefile, --windowed, --name "MTR-accelerator", --hidden-import, PySide6, --hidden-import, requests,
