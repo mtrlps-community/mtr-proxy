@@ -1,0 +1,52 @@
+name: Build macOS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        python-version: ['3.11']
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Build macOS application
+      run: bash build_mac.sh
+
+    - name: Upload macOS app
+      uses: actions/upload-artifact@v4
+      with:
+        name: mtr-accelerator-macos
+        path: dist/mtr加速器.app
+        retention-days: 30
+
+    - name: Create Release (if tagged)
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: dist/mtr加速器.app
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
