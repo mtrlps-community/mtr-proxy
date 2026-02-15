@@ -29,5 +29,5 @@ jobs:
         uses: sayyid5416/pyinstaller@v1
         with:
           python_ver: '3.12'
-          spec: 'MTR-accelerator.spec'   # 指向 spec 文件
+          spec: 'MTR-acceleratorwin.spec'   # 指向 spec 文件
           upload_exe_with_name: 'MTR-accelerator'
