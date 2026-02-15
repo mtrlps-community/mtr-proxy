@@ -1,0 +1,35 @@
+# Build Windows Executables
+
+name: Build Windows
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install PyInstaller
+      run: |
+        pip install pyinstaller
+
+    - name: Build executable
+      run: |
+        pyinstaller --onefile your_script.py
+
+    - name: Upload executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: your_executable
+        path: dist/your_script.exe
