@@ -1,9 +1,7 @@
 name: Build Windows
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -11,24 +9,25 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.13'
 
-    - name: Install Libs
+    - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pyinstaller
 
     - name: Build executable
       run: |
-        pyinstaller --noconfirm --onefile --windowed --name mtr加速器 --hidden-import PySide6 --hidden-import requests main.py
+        python build_client.py
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
       with:
-        name: mtr加速器
+        name: mtr加速器.exe
         path: dist/mtr加速器.exe
